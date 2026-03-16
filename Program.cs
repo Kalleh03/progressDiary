@@ -9,35 +9,36 @@ class Program
 
     static void Main()
     {
-        string[] orderIDs = {"B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179" };
-        int [] orderNr  = {111, 444, 666, 442, 555, 888, 145, 135, 1113};
-        int sum = 0;
-        int bin = 0;
-        
-       foreach(string orderID in orderIDs)
+        string[] fraudIDs = {"A55DF", "A456", "B3456", "B345488", "A12", "B778", "C1"};
+
+       foreach (string fraudID in fraudIDs)
         {
-            if (orderID.StartsWith("B"))
+            if(fraudID.Contains("2"))
+            {   
+                Console.WriteLine(fraudID);
+            }
+            else
             {
-                Console.WriteLine(orderID);
+                Console.WriteLine($"{fraudID} did not contain 2");
             }
         }
 
-        foreach (int order in orderNr)
+        foreach (string fraudID in fraudIDs)
         {
-            
-            sum += order;
-            bin++;
-            Console.WriteLine($"Bin {bin} = {order} items (running total: {sum})");
-            
-            
+            if(fraudID.EndsWith("6"))
+            {
+                Console.WriteLine($"{fraudID} ends with 6");
+            }
+            else
+            {
+                Console.WriteLine($"{fraudID} did not end with 6");
+            }
         }
-        Console.WriteLine($"We have {sum} items in inventory.");
-
     }
 }
 
 
-// först gör man en string med orderIDs. 
+// först bygger man en string med orderIDs . 
 // sen gör man en foreach med string orderID som pekar in i string med in orderIDs
 // efter det en if orderID.StartsWith
 // sen skriver man ut orderID
