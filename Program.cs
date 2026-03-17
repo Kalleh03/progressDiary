@@ -5,40 +5,46 @@ using System.Runtime.CompilerServices;
 
 class Program
 {   
-    
-
     static void Main()
     {
-        string[] fraudIDs = {"A55DF", "A456", "B3456", "B345488", "A12", "B778", "C1"};
+    int[] numbers = { 4, 8, 15, 16, 23, 42 };
+    int total = 0;
+    bool found = false;
 
-       foreach (string fraudID in fraudIDs)
-        {
-            if(fraudID.Contains("2"))
-            {   
-                Console.WriteLine(fraudID);
-            }
-            else
-            {
-                Console.WriteLine($"{fraudID} did not contain 2");
-            }
-        }
-
-        foreach (string fraudID in fraudIDs)
-        {
-            if(fraudID.EndsWith("6"))
-            {
-                Console.WriteLine($"{fraudID} ends with 6");
-            }
-            else
-            {
-                Console.WriteLine($"{fraudID} did not end with 6");
-            }
-        }
+    foreach (int number in numbers)
+    {
+        total += number;
+        if (number == 42) 
+            found = true;
     }
+
+    if (found)
+        Console.WriteLine("Set contains 42");
+    
+    Console.WriteLine($"Total: {total}");   
+    }    
 }
 
+            
+            
+                    
+            
 
-// först bygger man en string med orderIDs . 
-// sen gör man en foreach med string orderID som pekar in i string med in orderIDs
-// efter det en if orderID.StartsWith
-// sen skriver man ut orderID
+        
+
+
+            
+            
+
+            
+
+        
+
+
+// To initialize a value you need it before the if statement.  Ex value = 10;
+// We can give int a value of 0 outside the if statement and then give it another value after. 
+// To increase readability we don't use too many curlybraces if we don't have to.
+// Also we don't smash everything into one line of code. 
+
+// Moving int for total and bool found = false outside the codebracket.  
+// 
