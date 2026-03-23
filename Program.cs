@@ -1,50 +1,24 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 
-
+// This was interesting, a lesson in compressing code and making it readable. 
+// Really interesting stuff and i get most of it, bools are the problem right now.
+// I still have some work to do concerning formatting etc, but it's getting there!  
 
 class Program
 {   
     static void Main()
     {
-    int[] numbers = { 4, 8, 15, 16, 23, 42 };
-    int total = 0;
-    bool found = false;
 
-    foreach (int number in numbers)
-    {
-        total += number;
-        if (number == 42) 
-            found = true;
-    }
+        Console.WriteLine(1 > 2);
+        Console.WriteLine(1 < 2);
+        Console.WriteLine(1 >= 1);
+        Console.WriteLine(1 <= 1);
 
-    if (found)
-        Console.WriteLine("Set contains 42");
-    
-    Console.WriteLine($"Total: {total}");   
     }    
 }
+    
 
-            
-            
-                    
-            
-
-        
-
-
-            
-            
-
-            
-
-        
-
-
-// To initialize a value you need it before the if statement.  Ex value = 10;
-// We can give int a value of 0 outside the if statement and then give it another value after. 
-// To increase readability we don't use too many curlybraces if we don't have to.
-// Also we don't smash everything into one line of code. 
-
-// Moving int for total and bool found = false outside the codebracket.  
-// 
+    // When using strings i should use ToUpper() or ToLower() to make the strings uniform.
+    // Also to remove whitespace i can use Trim() so there's no sneaky space just waiting to bug me. 
+    // I can use these in order by adding a ().ToLower() after another method.
