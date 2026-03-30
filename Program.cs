@@ -1,51 +1,146 @@
-﻿class Program
+﻿
 
-        // so i started adding everything to the same file and separate them by strings so i know where one function starts.
-{   
-    static void Main()
+// so this is a follow along project to calculate grades of students. 
+// It's a big step up from previous projects but it turns out it's kinda fun. 
+
+
+// currentStudent
+// studentNames
+/*
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90, 89 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68, 89, 89, 89 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96, 96 };
+*/
+// currentStudentLetterGrade
+// studentScoress
+
+//At first we need to declare examAssignments, and set it to 5.  
+
+int examAssignments = 5;
+
+// After that we need the string of names of the students. 
+string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+
+// Next we need int arrays of every student score.
+
+
+int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
+int[] andrewScores = new int[] { 92, 89, 81, 96, 90, 89 };
+int[] emmaScores = new int[] { 90, 85, 87, 98, 68, 89, 89, 89 };
+int[] loganScores = new int[] { 90, 95, 87, 88, 96, 96 };
+
+// Also a int for studentScoress.
+int[] studentScores = new int[0]; 
+
+
+// a string for currentStudentLetterGrade = "".
+string currentStudentLetterGrade = "";
+
+
+// Here we need to clear the console and format our list of student, grade, letter, Letter grade . 
+Console.Clear();
+Console.WriteLine("Student\t\tGrade\tLetter\tLetter Grade");
+
+
+// foreach list of currentStudent name in studentNames with a new string currentStudent = name;
+// if elif list of students in array with string name to couple studentScores with namescore. 
+foreach (string name in studentNames)
+{
+    string currentStudent = name;
+
+    if (currentStudent == "Sophia")
+        studentScores = sophiaScores;
+
+    else if (currentStudent == "Andrew")
+        studentScores = andrewScores;
+
+    else if (currentStudent == "Emma")
+        studentScores = emmaScores;
+
+    else if (currentStudent == "Logan")
+        studentScores = loganScores;     
+
+
+    // save sumAssignmentScores
+    int sumAssignmentScores = 0;
+
+
+    // save currentStudentGrade
+    decimal currentStudentGrade = 0;
+
+    // save gradedAssignments
+    int gradedAssignments = 0;
+
+    // foreach statement score in studentScores.
+    // inside we need gradedAssignments to +=1 with a if statement. 
+    // else statement is sumAssignementScores += score / 10;
+
+    foreach (int score in studentScores)
     {
+        gradedAssignments +=1;
 
-        int a = 7;
-        int b = 6;
-        
-        string s1 = "Hello";
-        string s2 = "Hello";
+        if (gradedAssignments <= examAssignments)
+            sumAssignmentScores += score;
 
-        Console.WriteLine(1 > 2);
-        Console.WriteLine(1 < 2);
-        Console.WriteLine(1 >= 1);
-        Console.WriteLine(1 <= 1);
+        else
+            sumAssignmentScores += score / 10;    
+    }
 
+    // Here we need to calculate the currentStudentGrade 
+    currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
 
-        Console.WriteLine("Start of string");
-        string testText = "The quick brown fox jumps over the lazy dog.";
-        Console.WriteLine(testText.Contains("cow"));
-        Console.WriteLine(testText.Contains("fox"));
+    // If statement starting at the top going lower. 
+    // 97, 93, 90, 87, 83, 80, 77, 73, 70, 67, 63, 60,  F.
 
+    if  (currentStudentGrade >= 97)
+        currentStudentLetterGrade = "A+";
 
-        Console.WriteLine("Start of string2");
-        Console.WriteLine(testText.Contains("dog") == false);
-        Console.WriteLine(!testText.Contains("dog"));
+    else if (currentStudentGrade >= 93)
+        currentStudentLetterGrade = "A"; 
 
+    else if (currentStudentGrade >= 90)
+        currentStudentLetterGrade = "A-";
 
+    else if (currentStudentGrade >= 87)
+        currentStudentLetterGrade = "B+";
 
-        Console.WriteLine("Start of string3");
-        Console.WriteLine(!testText.Contains("fox"));   //this says "not contains fox" which is False.
-        Console.WriteLine(!testText.Contains("cow"));   //this says "not contains cow" so that's True. 
+    else if (currentStudentGrade >= 83)
+        currentStudentLetterGrade = "B";     
 
+    else if (currentStudentGrade >= 80)
+        currentStudentLetterGrade = "B-";
 
-        Console.WriteLine("Start of string4 (a != b)");
-        Console.WriteLine(a != b); // output: True
-        Console.WriteLine(s1 != s2); // output: False
+    else if (currentStudentGrade >= 77)
+        currentStudentLetterGrade = "C+";
 
+    else if (currentStudentGrade >= 73)
+        currentStudentLetterGrade = "C";
 
-    }    
-}
+    else if (currentStudentGrade >= 70)
+        currentStudentLetterGrade = "C-";
+
+    else if (currentStudentGrade >= 67)
+        currentStudentLetterGrade = "D+";
+
+    else if (currentStudentGrade >= 63);
+
+    else if (currentStudentGrade >= 60)
+        currentStudentLetterGrade = "D-";
+
+    else 
+        currentStudentLetterGrade = "F";
+
+    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}");
     
+}   
 
-    // When using strings i should use ToUpper() or ToLower() to make the strings uniform.
-    // Also to remove whitespace i can use Trim() so there's no sneaky space just waiting to bug me. 
-    // I can use these in order by adding a ().ToLower() after another method.
-    // Ctrl-h is used to find and replace all instances of a word IN THIS FILE Ctrl-shift-h for all instances within project. 
-    // ! is used for "not" can be used in a argument or ==false behind argument.
+// Result output with a Readline at the bottom to make the console stop. 
 
+Console.WriteLine("\n\rPress the Enter key to continue");
+Console.ReadLine();
+        
+
+        
+
+    
