@@ -1,44 +1,37 @@
 ﻿
-// working on if statements!  
-// still having a hard time building these correctly.
 
-string permission = "Torsten";
-int level = 10;
+// vi börjar med att declare employeelevel och employeename.
+int employeelevel = 400;
+string employeename = "Kalle";
 
-// ett if statement med permission först för att se om man är admin eller inte. 
-// sen ett if statement med level för admin och else
-// sen en likadan för "inte admin" och sist "fakk jo"
+// sen behöver vi en tom string för title att använda.
 
+string title = "";
 
-if (permission.Contains ("Admin"))
+// sen switch block för employeelevel och case inuti med title och sist en break för att bryta process.
+// ett switch statement är ett block och behöver inte delas med {}. varje case avslutas med ":". sista heter default.
+
+switch (employeelevel)
 {
-    if (level >= 55)
-    {
-        Console.WriteLine("Welcome Admin super user!");
-    }
+    case 100:
+    title = "Junior associate";
+    break;
 
-    else
-    {
-        Console.WriteLine("Welcome Admin!");
-    }
+    case 200:
+    title = "Medium associate";
+    break;
+
+    case 300:
+    title = "Senior associate";
+    break;
+
+    case 400:
+    title = "Owner";
+    break;
+
+    default:
+    title = "Scrub";
+    break;
 }
-else
-{
-    if (permission.Contains("Manager"))
-    {   
-        if (level >= 20)
-        {
-        Console.WriteLine("Talk to an Admin for permissions");
-        }
-        else
-        {
-            Console.WriteLine("You don't have the permission to view this.");
-        }
-    }
-    else
-    {
-        Console.WriteLine("U got nothin");
-    }
 
-
-}
+Console.WriteLine($"{employeename} is a {title}");
