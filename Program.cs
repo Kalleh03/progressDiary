@@ -1,34 +1,72 @@
-﻿
-
-// vi börjar med att declare employeelevel och employeename.
-int employeLevel = 300;
-string employeName = "Kalle";
-
-// sen behöver vi en tom string för title att använda.
-
-string title = "";
+﻿// SKU = Stock Keeping Unit. 
+// SKU value format: <product #>-<2-letter color code>-<size code>
 
 
-// sen switch block för employeelevel och case inuti med title och sist en break för att bryta process.
-// ett switch statement är ett block och behöver inte delas med {}. varje case avslutas med ":". sista heter default.
+string sku = "01-MN-L";
 
-switch (employeLevel)
+string[] product = sku.Split('-');
+
+string type = "";
+string color = "";
+string size = "";
+
+string clothes = "";
+
+// gjort en ny string clothes för att spara kläder.  Nu visar den "M" för mitt case är tomt. 
+
+switch(clothes)
 {
-case 100:
-title = "Mupp";
-break;
+    case "product":
+    size = "S";
+    break;
 
-case 200:
-title = "Muppare";
-break;
+    case "":
+    size = "M";
+    break;
 
-case 300:
-title = "Muppast";
-break;
-
-default:
-title = "El-reta..";
-break;
+    case "03":
+    size = "L";
+    break;
 }
 
-Console.WriteLine($"{employeName} is {title}");
+Console.WriteLine($"Product: {size} {color} {type}");
+
+// if (product[0] == "01")
+// {
+//     type = "Sweat shirt";
+// } else if (product[0] == "02")
+// {
+//     type = "T-Shirt";
+// } else if (product[0] == "03")
+// {
+//     type = "Sweat pants";
+// }
+// else
+// {
+//     type = "Other";
+// }
+
+// if (product[1] == "BL")
+// {
+//     color = "Black";
+// } else if (product[1] == "MN")
+// {
+//     color = "Maroon";
+// } else
+// {
+//     color = "White";
+// }
+
+// if (product[2] == "S")
+// {
+//     size = "Small";
+// } else if (product[2] == "M")
+// {
+//     size = "Medium";
+// } else if (product[2] == "L")
+// {
+//     size = "Large";
+// } else
+// {
+//     size = "One Size Fits All";
+// }
