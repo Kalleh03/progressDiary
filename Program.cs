@@ -1,15 +1,19 @@
 ﻿// SKU = Stock Keeping Unit. 
 // SKU value format: <product #>-<2-letter color code>-<size code>
 
-
+// this is the string we get to search in. 
 string sku = "01-MN-L";
 
+// this is the sneaky string in to array and split at the "-" that we have never seen before... 
 string[] product = sku.Split('-');
 
+
+// these are just there to store the answers. 
 string type = "";
 string color = "";
 string size = "";
 
+// search through the first part of the string for numbers.
 switch (product[0])
 {
     case "01":
@@ -29,6 +33,7 @@ switch (product[0])
     break;
 }
 
+// search through the string for "BL"
 switch (product[1])
 {
     case "BL":
@@ -44,6 +49,7 @@ switch (product[1])
     break;
 }
 
+// search through the string for "L"
 switch (product[2])
 {
     case "S":
@@ -63,4 +69,5 @@ switch (product[2])
     break;
 }
 
+// output from the switches into text. 
 Console.WriteLine($"Product: {type} {size} {color} ");
