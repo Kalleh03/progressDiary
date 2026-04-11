@@ -1,73 +1,40 @@
-﻿// SKU = Stock Keeping Unit. 
-// SKU value format: <product #>-<2-letter color code>-<size code>
+﻿// FUUUCK YEAH! First time i completed a challenge without looking at the answer! 
+// I'm gonna celebrate with a beer, then i'm gonna check what's actually needed in the code and what's overengineered.
 
-// this is the string we get to search in. 
-string sku = "01-MN-L";
+// A for statement is made up of three different parts.  The first one is the initializer, that's int i = 1; in this example
+// The second part is separated by a semicolon and called the condition.
+// Third part is separated by semicolon aswell and called the iterator. 
+// The whole thing with i= int inside the parenthesis is called the body. 
 
-// this is the sneaky string in to array and split at the "-" that we have never seen before... 
-string[] product = sku.Split('-');
+
+// Output values from 1 to 100, one number per line, inside the code block of an iteration statement.
+// When the current value is divisible by 3, print the term Fizz next to the number.
+// When the current value is divisible by 5, print the term Buzz next to the number.
+// When the current value is divisible by both 3 and 5, print the term FizzBuzz next to the number.
 
 
-// these are just there to store the answers. 
-string type = "";
-string color = "";
-string size = "";
 
-// search through the first part of the string for numbers.
-switch (product[0])
-{
-    case "01":
-    type = "Sweat shirt";
-    break;
+for (int i = 1; i < 101; i++)
 
-    case "02":
-    type = "T-shirt";
-    break;
+{   
 
-    case "03":
-    type = "Sweat pants";
-    break;
+    if (i % 5 == 0 && i % 3 == 0 )
+    {
+        Console.WriteLine($"{i} FizzBuzz");
+    }
 
-    default:
-    type = "Other";
-    break;
-}
+    else if (i % 3 == 0 && !(i % 5 == 0))
 
-// search through the string for "BL"
-switch (product[1])
-{
-    case "BL":
-    color = "Black";
-    break;
+    Console.WriteLine($"{i} Fizz");
 
-    case "MN":
-    color = "Maroon";
-    break;
+    else if (i % 5 == 0)
+    {
+        Console.WriteLine($"{i} Buzz");
+    }
 
-    default:
-    color = "White";
-    break;
-}
-
-// search through the string for "L"
-switch (product[2])
-{
-    case "S":
-    size = "Small";
-    break;
-
-    case "M":
-    size = "Medium";
-    break;
-
-    case "L":
-    size = "Large";
-    break;
-
-    default:
-    size = "Large";
-    break;
-}
-
-// output from the switches into text. 
-Console.WriteLine($"Product: {type} {size} {color} ");
+    else
+    {
+    Console.WriteLine(i);
+    }
+}    
+    
