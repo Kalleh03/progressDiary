@@ -1,21 +1,30 @@
 ﻿
 
 
-// Output values from 1 to 100, one number per line, inside the code block of an iteration statement.
-// When the current value is divisible by 3, print the term Fizz next to the number.
-// When the current value is divisible by 5, print the term Buzz next to the number.
-// When the current value is divisible by both 3 and 5, print the term FizzBuzz next to the number.
 
 
 
-for (int i = 1; i < 101; i++)
-{
-    if ((i % 3 == 0) &&(i % 5 == 0))
-    Console.WriteLine($"{i} FizzFuzz");
-    else if (i % 3 == 0) 
-    Console.WriteLine ($"{i} Fizz");
-    else if (i % 5 == 0)
-    Console.WriteLine($"{i} Fuzz");
-    else
-    Console.WriteLine(i);
-}
+
+int playerHealth = 10;
+int npcHealth = 10;
+
+Console.WriteLine($"Player Health: {playerHealth}");
+Console.WriteLine($"NPC Health: {npcHealth}");
+
+Random dice = new Random();
+
+do
+{   
+    int roll = dice.Next(1,11);
+    npcHealth -= roll;
+    Console.WriteLine($"Monster takes damage of {roll} health and now has {npcHealth} health");    
+    
+    if (npcHealth <= 0) continue;
+
+    roll = dice.Next(1,11);
+    playerHealth -= roll;
+    Console.WriteLine($"Player takes damage of {roll} and now has {playerHealth} health.");
+
+} while (npcHealth > 0 && npcHealth > 0);
+
+Console.WriteLine(playerHealth > npcHealth ? "Player wins!" : "Monster wins!");
