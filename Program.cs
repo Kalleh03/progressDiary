@@ -1,26 +1,32 @@
-﻿// This one eludes me still, the logic behind saving hp and displaying random is still odd. 
-// The same can be said of the while loop which i haven't used much yet. 
-// Perhaps that's the problem... 
-
-int playerHealth = 10;
-int npcHealth = 10;
+﻿
 
 
+// So here we read a console line in int32 and then try to get the correct output if it's between 5 and 10.
+// It works, it really does!  It looks like shit though. 
 
-Random dice = new Random();
+
+Console.WriteLine("Gimme a number between 5 and 10.");
+
+int readResult = Convert.ToInt32(Console.ReadLine());
+bool validEntry = false;
 
 do
-{   
-   int roll = dice.Next(1,11);
-   npcHealth -= roll;
-   Console.WriteLine($"Monster is hit, takes {roll} damage. Monster has {npcHealth}HP left.");
-   if (npcHealth <= 0) continue;
+{
+    if (readResult != null)
+    {
+        if (readResult < 5)
+        {
+            Console.WriteLine("Number too small, go bigger!");
+        }
+        else if (readResult >=5 && readResult <= 10)
+        {
+            validEntry = true;
+            Console.WriteLine($"Yay you wrote {readResult}");
+        }
+        else
+        {
+            Console.WriteLine("Invalid input, please write a number between 5 and 10.");
+        }
+    }
 
-   roll = dice.Next(1,11);
-   playerHealth -= roll;
-   Console.WriteLine($"Player is hit, takes {roll} damage. Hero has {playerHealth}HP left.");
-   
-
-} while (npcHealth > 0 && playerHealth > 0);
-
-Console.WriteLine(playerHealth > npcHealth ? "Hero wins!" : "Monster wins!");
+} while (validEntry = false);
