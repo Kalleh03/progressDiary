@@ -1,32 +1,33 @@
-﻿
+﻿// this shit doesn't work at all and i don't know why... 
 
 
-// So here we read a console line in int32 and then try to get the correct output if it's between 5 and 10.
-// It works, it really does!  It looks like shit though. 
 
 
-Console.WriteLine("Gimme a number between 5 and 10.");
 
-int readResult = Convert.ToInt32(Console.ReadLine());
+
+string? readResult;
+string roleName = "";
 bool validEntry = false;
 
 do
 {
+    Console.WriteLine($"Enter your role name (Administrator, Manager or User)");
+    readResult = Console.ReadLine();
     if (readResult != null)
     {
-        if (readResult < 5)
-        {
-            Console.WriteLine("Number too small, go bigger!");
-        }
-        else if (readResult >=5 && readResult <= 10)
-        {
-            validEntry = true;
-            Console.WriteLine($"Yay you wrote {readResult}");
-        }
-        else
-        {
-            Console.WriteLine("Invalid input, please write a number between 5 and 10.");
-        }
+        roleName = readResult.Trim();
     }
 
-} while (validEntry = false);
+    if (roleName.ToLower() == "Administrator" || roleName.ToLower() == "Manager" || roleName.ToLower() == "user")
+    {
+        validEntry = true; 
+    }
+    else
+    {
+        Console.Write($"The role name you entered, \"{roleName}\" is not valid. ");
+    }
+}while (validEntry == false);
+
+Console.WriteLine($"Your input value ({roleName}) has been accepted.");
+readResult = Console.ReadLine();
+
