@@ -1,34 +1,32 @@
-﻿// while loop checks a condition at the start, then executes that block of code if the condition is true.
+﻿// this took some tinkering and where parsing goes in and what comes out is still a mystery, but it works! 
+
+// while loop checks a condition at the start, then executes that block of code if the condition is true.
 // do while loops always executes a block of code once THEN checks the condition at the bottom.
 
 
+string? userInput = "";
+int acceptableInput = 0;
+bool working = false;
 
+Console.WriteLine($"Enter a integer between 5 and 10:");
 
+do  
+{   
+    userInput = Console.ReadLine();
 
+    if (int.TryParse(userInput, out acceptableInput) && acceptableInput >= 5 && acceptableInput <= 10)
+    {   
+        working = true;
+        Console.WriteLine($"Your input value ({acceptableInput}) has been accepted.");
+    }   
 
-
-int number = 0;
-int sum = 0;
-
-
-Console.WriteLine($"Gimme a number under 100: ");
-number = Convert.ToInt32(Console.ReadLine());
-
-do
-{
-    sum += number++;
-    if (sum > 0)
+    else
     {
+        Console.WriteLine("Sorry, you entered a invalid number, please try again.");
+    } 
+
         
-        Console.WriteLine($"We plus {number} to {sum} ");
-    }
-
-}while (sum <= 100);
-
-while (sum > 100)
-{
-    Console.WriteLine("AAAAND we're over 100!");
-    break;
-}
+        
+}while (working == false); 
 
 
