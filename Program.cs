@@ -1,33 +1,37 @@
-﻿// this took some tinkering and where parsing goes in and what comes out is still a mystery, but it works! 
+﻿
+// Övning 1:
+// if  (int.TryParse(userInput, out acceptableInput) såhär funkar Parse, om försök( string input, ut intform)
 
-// while loop checks a condition at the start, then executes that block of code if the condition is true.
-// do while loops always executes a block of code once THEN checks the condition at the bottom.
+// Övning 2:
+// userInput = Console.ReadLine().Trim() ?? string.Empty;  här sparar man input med trim och null direkt! 
+// sen går if att snygga till i tre fina rader.
+// userInput.Equals(admin, StringComparison.OrdinalIgnoreCase)  här jämför man string mot input. 
 
-//  validNumber = int.TryParse(valueEntered, out numValue);
 
-string userInput = "";
-int acceptableInput = 0;
-bool working = false;
 
-Console.WriteLine($"Enter a integer between 5 and 10:");
+string admin = "Administrator";
+string manager = "Manager";
+string user = "User";
+bool correctName = false;
+string userInput; 
 
-do  
-{   
+Console.WriteLine($"Enter your role name. Administrator, Manager, or User");
 
-    userInput = Console.ReadLine();
-
-    if  (int.TryParse(userInput, out acceptableInput) && acceptableInput >= 5 && acceptableInput <= 10 )
+do
+{
+    userInput = Console.ReadLine().Trim() ?? string.Empty;
+    
+    if (userInput.Equals(admin, StringComparison.OrdinalIgnoreCase) || 
+        userInput.Equals(manager, StringComparison.OrdinalIgnoreCase)|| 
+        userInput.Equals(user, StringComparison.OrdinalIgnoreCase))
     {
-        working = true;
-        Console.WriteLine($"Your input value ({acceptableInput}) has been accepted.");
+        correctName = true;
+        Console.WriteLine($"Your input value ({userInput}) hahs been accepted.");
     }
     else
     {
-        Console.WriteLine($"Sorry you entered a invalid number, please try again.");
+        Console.WriteLine($"The role name that you entered ({userInput}) is not valid. Enter your role name (Administrator, Manager, or User)");
     }
-               
-}while (working == false); 
-
-
+}while (!correctName);
 
 
