@@ -1,33 +1,34 @@
-﻿// this shit doesn't work at all and i don't know why... 
+﻿// while loop checks a condition at the start, then executes that block of code if the condition is true.
+// do while loops always executes a block of code once THEN checks the condition at the bottom.
 
 
 
 
 
 
-string? readResult;
-string roleName = "";
-bool validEntry = false;
+
+int number = 0;
+int sum = 0;
+
+
+Console.WriteLine($"Gimme a number under 100: ");
+number = Convert.ToInt32(Console.ReadLine());
 
 do
 {
-    Console.WriteLine($"Enter your role name (Administrator, Manager or User)");
-    readResult = Console.ReadLine();
-    if (readResult != null)
+    sum += number++;
+    if (sum > 0)
     {
-        roleName = readResult.Trim();
+        
+        Console.WriteLine($"We plus {number} to {sum} ");
     }
 
-    if (roleName.ToLower() == "Administrator" || roleName.ToLower() == "Manager" || roleName.ToLower() == "user")
-    {
-        validEntry = true; 
-    }
-    else
-    {
-        Console.Write($"The role name you entered, \"{roleName}\" is not valid. ");
-    }
-}while (validEntry == false);
+}while (sum <= 100);
 
-Console.WriteLine($"Your input value ({roleName}) has been accepted.");
-readResult = Console.ReadLine();
+while (sum > 100)
+{
+    Console.WriteLine("AAAAND we're over 100!");
+    break;
+}
+
 
