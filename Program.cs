@@ -1,27 +1,18 @@
 ﻿
-// Övning 1:
-// if  (int.TryParse(userInput, out acceptableInput) såhär funkar Parse, om försök( string input, ut intform)
-
-// Övning 2:
-// userInput = Console.ReadLine().Trim() ?? string.Empty;  här sparar man input med trim och null direkt! 
-// sen går if att snygga till i tre fina rader.
-// userInput.Equals(admin, StringComparison.OrdinalIgnoreCase)  här jämför man string mot input. 
+// I am playing around with type casting, converting here and there to really get a hang of this. 
+// Dunno, but it feels ok? 
 
 
-// Öva parse, toint, tostring, etc i en writeline. 
 
 
-double siffra = 1.553d;
 
-Convert.ToDecimal(siffra);
-
-Console.WriteLine(siffra);
-Console.WriteLine(siffra.GetType());
-
-Convert.ToString(siffra);
-
-string siffra2 = "1.44";
-
-Console.WriteLine(siffra2);
-Console.WriteLine(siffra2.GetType());
-
+Console.WriteLine("Write a number: ");
+string? userInput = Console.ReadLine();
+int inputInt = Convert.ToInt32(userInput);
+Console.WriteLine($" You wrote : {inputInt}");
+Console.WriteLine($"Now we convert {inputInt} to double!");
+double inputDouble = Convert.ToDouble(inputInt);
+Console.WriteLine($" You wrote : {inputDouble} which is now a Double!");
+Console.WriteLine(inputDouble.GetType());
+float inputFloat = Convert.ToSingle(inputDouble);
+Console.WriteLine($"You wrote {inputFloat.GetType()} which is a float now!");
