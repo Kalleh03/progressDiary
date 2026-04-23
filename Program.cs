@@ -8,30 +8,20 @@
 // userInput.Equals(admin, StringComparison.OrdinalIgnoreCase)  här jämför man string mot input. 
 
 
+// Öva parse, toint, tostring, etc i en writeline. 
 
-string admin = "Administrator";
-string manager = "Manager";
-string user = "User";
-bool correctName = false;
-string userInput; 
 
-Console.WriteLine($"Enter your role name. Administrator, Manager, or User");
+double siffra = 1.553d;
 
-do
-{
-    userInput = Console.ReadLine().Trim() ?? string.Empty;
-    
-    if (userInput.Equals(admin, StringComparison.OrdinalIgnoreCase) || 
-        userInput.Equals(manager, StringComparison.OrdinalIgnoreCase)|| 
-        userInput.Equals(user, StringComparison.OrdinalIgnoreCase))
-    {
-        correctName = true;
-        Console.WriteLine($"Your input value ({userInput}) hahs been accepted.");
-    }
-    else
-    {
-        Console.WriteLine($"The role name that you entered ({userInput}) is not valid. Enter your role name (Administrator, Manager, or User)");
-    }
-}while (!correctName);
+Convert.ToDecimal(siffra);
 
+Console.WriteLine(siffra);
+Console.WriteLine(siffra.GetType());
+
+Convert.ToString(siffra);
+
+string siffra2 = "1.44";
+
+Console.WriteLine(siffra2);
+Console.WriteLine(siffra2.GetType());
 
