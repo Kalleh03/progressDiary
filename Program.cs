@@ -1,18 +1,14 @@
-﻿
-// I am playing around with type casting, converting here and there to really get a hang of this. 
-// Dunno, but it feels ok? 
+﻿// I feel like i have understood how to convert from string, to double, to decimal and back to int again without problems. 
 
 
-
-
-
-Console.WriteLine("Write a number: ");
-string? userInput = Console.ReadLine();
-int inputInt = Convert.ToInt32(userInput);
-Console.WriteLine($" You wrote : {inputInt}");
-Console.WriteLine($"Now we convert {inputInt} to double!");
-double inputDouble = Convert.ToDouble(inputInt);
-Console.WriteLine($" You wrote : {inputDouble} which is now a Double!");
-Console.WriteLine(inputDouble.GetType());
-float inputFloat = Convert.ToSingle(inputDouble);
-Console.WriteLine($"You wrote {inputFloat.GetType()} which is a float now!");
+Console.Write("Write a number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+double numberDouble = Convert.ToDouble(number);
+Console.WriteLine($"{numberDouble} double");
+Console.WriteLine(numberDouble.GetType());
+decimal numberDecimal = Convert.ToDecimal(numberDouble);
+Console.WriteLine($"{numberDecimal} decimal");
+Console.WriteLine(numberDecimal.GetType());
+int number2 = Convert.ToInt32(numberDecimal);
+Console.WriteLine($"{number2} int again!");
+Console.WriteLine(number2.GetType());
