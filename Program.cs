@@ -3,32 +3,16 @@
 
 
 
+// in the while () we write a condition, we will keep doing it until the condition is false. 
+// While loops checks the condition before executing anything.
+// do while loops checks the condition at the end so the code within will run once. 
 
-string? readResult;
-bool correctOutput;
+int index = 0;
 
-Console.WriteLine("Enter a number between 5 and 10:");
-readResult = Console.ReadLine();    
-int intResult = Convert.ToInt32(readResult);
+while (index <= 5)
+{
+    Console.WriteLine(index);
+    index++;
 
-do
-{   
-    Console.WriteLine("Enter a valid number!");
-    do 
-    {
-
-        if (intResult >= 5 || intResult <= 10)
-        {
-            Console.WriteLine($"correct result {intResult}");
-            correctOutput = true;
-        }    
-
-        else
-        {
-        Console.WriteLine("");    
-        }
-
-    }while (correctOutput == false);
-} while (readResult == null);
-
+}
 
