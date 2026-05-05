@@ -1,38 +1,39 @@
 ﻿
-
-// So we have a string, a int and a bool.  we ask for the number and put it in input().
-// we parse our bool = int.TryParse(nameInput, out integer)
-// then we ask if validNumber is true or false, continue if it's true. 
-// after validNumber is true we check if the int is within range of our question. 
-// if it is, we set isValidNumber to true and continue on. 
-// at last we put our success message, we made it through the if maze without getting stuck. The prize is at the end. 
+// So i started a new problem, i think i got the start at least. 
 
 
+string userInput = "";
+string admin = "Administrator";
+string manager = "Manager";
+string user = "User";
+bool validEntry = false;
 
-string? nameInput = ""; 
-int integer = 0; 
-bool isValidNumber = false;
 
-Console.WriteLine("Enter an integer between 5 and 10");
+Console.WriteLine($"Enter your role name (Administrator, Manager, or User)");
 
-do
-{
-    nameInput = Console.ReadLine()?.Trim();
-    isValidNumber = int.TryParse(nameInput, out integer);
+Console.ReadLine();
+bool.TryParse(userInput.Trim().ToLower(), out validEntry);
 
-    if (!isValidNumber)
+while (validEntry == false)
+{ 
+    if (userInput == user)
     {
-        Console.WriteLine("Sorry, you entered an invalid number, please try again.");
-        continue;
+        Console.WriteLine($"Your input value ({user}) has been accepted. ");
+        validEntry = true;
     }
 
-    if (integer < 5 || integer > 10)
+    else if (userInput == manager)
     {
-        Console.WriteLine($"You entered ({integer}). Please enter a number between 5 and 10!");
-        isValidNumber = false;
-        continue;
+        Console.WriteLine($"Your input value ({manager}) has been accepted.");
+        validEntry = true;
     }
 
-}while (!isValidNumber); 
+    else if (userInput == admin)
+    {
+        Console.WriteLine($"Your input value ({manager}) has been accepted.");
+        validEntry = true;
+    }
+    
+}
 
-Console.WriteLine($"Your input value ({integer}) has been accepted.");
+Console.WriteLine($"else");
