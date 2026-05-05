@@ -11,11 +11,12 @@ bool validEntry = false;
 
 Console.WriteLine($"Enter your role name (Administrator, Manager, or User)");
 
-Console.ReadLine();
-bool.TryParse(userInput.Trim().ToLower(), out validEntry);
 
 while (validEntry == false)
-{ 
+{
+
+    userInput = Console.ReadLine()?.Trim().ToLower();
+
     if (userInput == user)
     {
         Console.WriteLine($"Your input value ({user}) has been accepted. ");
@@ -33,7 +34,13 @@ while (validEntry == false)
         Console.WriteLine($"Your input value ({manager}) has been accepted.");
         validEntry = true;
     }
-    
-}
 
-Console.WriteLine($"else");
+    else
+    {
+        Console.WriteLine($"Invalid role. Please enter Administrator, Manager, or User.");
+    }
+    
+} 
+
+Console.WriteLine($"Role accepted, Continuing...");
+Console.ReadLine();
